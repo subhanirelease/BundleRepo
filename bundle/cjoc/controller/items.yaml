@@ -1,0 +1,64 @@
+removeStrategy:
+  rbac: SYNC
+  items: NONE
+items:
+- kind: freeStyle
+  name: FreestyleBuild
+  blockBuildWhenDownstreamBuilding: false
+  blockBuildWhenUpstreamBuilding: false
+  builders:
+  - shell:
+      command: |-
+        echo fsBuild success
+        sleep 40
+  concurrentBuild: false
+  description: ''
+  disabled: false
+  displayName: e1fsbuild
+  scm:
+    none: {}
+  scmCheckoutStrategy:
+    standard: {}
+  triggers:
+  - cron:
+      spec: 'H * * * * '
+- kind: freeStyle
+  name: FreestyleDeploy
+  blockBuildWhenDownstreamBuilding: false
+  blockBuildWhenUpstreamBuilding: false
+  builders:
+  - shell:
+      command: |-
+        echo fsDeploy success
+        sleep 40
+  concurrentBuild: false
+  description: ''
+  disabled: false
+  displayName: e1fsdeploy
+  scm:
+    none: {}
+  scmCheckoutStrategy:
+    standard: {}
+  triggers:
+  - cron:
+      spec: 'H * * * * '
+- kind: freeStyle
+  name: FreestyleTest
+  blockBuildWhenDownstreamBuilding: false
+  blockBuildWhenUpstreamBuilding: false
+  builders:
+  - shell:
+      command: |-
+        echo fsTest success
+        sleep 40
+  concurrentBuild: false
+  description: ''
+  disabled: false
+  displayName: e1fstest
+  scm:
+    none: {}
+  scmCheckoutStrategy:
+    standard: {}
+  triggers:
+  - cron:
+      spec: H * * * *

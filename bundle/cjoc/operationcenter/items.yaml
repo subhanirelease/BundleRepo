@@ -1,0 +1,52 @@
+removeStrategy:
+  items: "none"
+  rbac: "sync"
+items:
+  - kind: folder
+    name: ControllerFolder
+    description: 'This Folder is for test controllers'
+    displayName: ControllerFolder
+    items:
+    - kind: managedController
+      displayName: "Controller01"
+      name: "Controller01"
+      description: "Managed controller!"
+      properties:
+        - configurationAsCode:
+            bundle: controller-bundle-1
+        - healthReporting:
+            enabled: false
+        - owner:
+            delay: 5
+            owners: ''
+        - envelopeExtension:
+            allowExceptions: false
+        - sharedConfigurationOptOut:
+            optOut: false
+        - licensing:
+            strategy:
+              perUserLicensingStrategy: {}
+      configuration:
+        kubernetes:
+          allowExternalAgents: false
+          terminationGracePeriodSeconds: 1200
+          #image: cloudbees/mc-foo-image # uncomment to use a non-default image
+          memory: 3072
+          fsGroup: '1000'
+          cpus: 1.0
+          readinessTimeoutSeconds: 5
+          livenessInitialDelaySeconds: 300
+          readinessInitialDelaySeconds: 30
+          clusterEndpointId: default
+          disk: 50
+          readinessFailureThreshold: 100
+          livenessTimeoutSeconds: 10
+          domain: controller01
+          livenessPeriodSeconds: 10
+          javaOptions: -DfooSystemProperty="foo" -Dbar="bar"
+          yaml: |-
+            ---
+            kind: StatefulSet
+            metadata:
+              labels:
+                my-label: my-value

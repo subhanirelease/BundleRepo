@@ -1,0 +1,12 @@
+id: "controller-bundle-1"
+version: "1"
+apiVersion: "1"
+description: "My CloudBees Controller Configuration as Code (CasC) bundle"
+allowCapExceptions: true
+availabilityPattern: "ControllerFolder/.*"
+jcasc:
+  - "jenkins.yaml"
+plugins:
+  - "plugins.yaml"
+items:
+  - "items.yaml"

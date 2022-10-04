@@ -1,0 +1,30 @@
+jenkins:
+  systemMessage: "Controller configured using CloudBees CasC"
+  numExecutors: 2
+  securityRealm:
+    ldap:
+      configurations:
+      - displayNameAttributeName: "cn"
+        groupMembershipStrategy:
+          fromGroupSearch:
+            filter: "member={0}"
+        groupSearchBase: "ou=Groups"
+        inhibitInferRootDN: false
+        managerDN: "cn=admin,dc=example,dc=org"
+        managerPasswordSecret: ${LDAP_MANAGER_PASSWORD}
+        rootDN: "dc=example,dc=org"
+        server: "ldap://ldap-openldap:389"
+        userSearchBase: "ou=People"
+      disableMailAddressResolver: false
+      groupIdStrategy: "caseInsensitive"
+      userIdStrategy: "caseInsensitive"
+  authorizationStrategy: "cloudBeesRoleBasedAccessControl" 
+globalCloudBeesPipelineTemplateCatalog: 
+  catalogs:
+  - branchOrTag: "main"
+    scm:
+      git:
+        credentialsId: "credentials-id"
+        id: "cf504eg3-4y5d-34w2-97b1-2q7xt2nm9731" 
+        remote: "git@github.com:company/project-alpha.git"
+    updateInterval: "1d"
