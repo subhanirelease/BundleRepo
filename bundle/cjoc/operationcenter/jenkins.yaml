@@ -40,7 +40,7 @@ unclassified:
     timeout: 600 
     duration: 60 
   location:
-    url: http://cjoc.releaseiq.io:8888/ 
+    url: http://cjoc.perf.riq.releaseiq.io/ 
   bundleStorageService: 
     activated: true
     activeBundle:
