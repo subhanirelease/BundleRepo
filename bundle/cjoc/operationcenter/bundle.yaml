@@ -1,12 +1,10 @@
 apiVersion: "1"
 id: "cjoc"
 description: "CloudBees Configuration as Code (CasC) bundle"
-version: "1"
+version: "2"
 jcasc:
   - "jenkins.yaml"
 plugins:
   - "plugins.yaml"
-rbac:
-  - "rbac.yaml"
 items:
   - "items.yaml"
